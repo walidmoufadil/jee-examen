@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+@ToString
 public class Credit {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +27,8 @@ public class Credit {
     private int dureeRemboursement;
     private double tauxInteret;
     @ManyToOne
+    @ToString.Exclude
     private com.ensetsdia.jeeexamen.entity.Client client;
-    @OneToMany(mappedBy = "credit")
+    @OneToMany(mappedBy = "credit",fetch = FetchType.EAGER)
     private List<Remboursement> remboursements;
 }

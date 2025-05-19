@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -19,5 +20,6 @@ public class Remboursement {
     private double montant;
     private TypeRemboursement type;
     @ManyToOne
+    @ToString.Exclude
     private Credit credit;
 }
