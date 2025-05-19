@@ -12,9 +12,5 @@ public interface CreditService {
     CreditDTO updateCredit(Long id, CreditDTO creditDTO);
     void deleteCredit(Long id);
     List<RemboursementDTO> getCreditRemboursements(Long creditId);
-    // Méthodes spécifiques pour les types de crédit si nécessaire
-    // CreditDTO createCreditPersonnel(CreditDTO creditDTO);
-    // CreditDTO createCreditImmobilier(CreditDTO creditDTO);
-    // CreditDTO createCreditProfessionnel(CreditDTO creditDTO);
 }
 
